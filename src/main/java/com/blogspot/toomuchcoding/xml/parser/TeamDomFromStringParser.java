@@ -1,12 +1,12 @@
 package com.blogspot.toomuchcoding.xml.parser;
 
+import java.io.ByteArrayInputStream;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.ByteArrayInputStream;
 
 public class TeamDomFromStringParser {
 
@@ -14,7 +14,7 @@ public class TeamDomFromStringParser {
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         try {
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-            Document document = documentBuilder.parse(new ByteArrayInputStream(xml.getBytes()));
+            Document document = documentBuilder.parse(new ByteArrayInputStream(xml.getBytes("UTF-8")));
             Element team = document.getDocumentElement();
             System.out.println("Displaying squad for team " + team.getAttribute("name") + "\n");
             printPlayers(team);

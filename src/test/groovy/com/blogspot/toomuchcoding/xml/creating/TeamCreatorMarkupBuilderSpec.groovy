@@ -135,7 +135,7 @@ class TeamCreatorMarkupBuilderSpec extends Specification {
                 """
         and:
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder()
-            ByteArrayInputStream inputStream = new ByteArrayInputStream(barcelonaSquad.bytes)
+            ByteArrayInputStream inputStream = new ByteArrayInputStream(barcelonaSquad.getBytes("UTF-8"))
             Document document = builder.parse(inputStream)
             StringWriter output = new StringWriter()
             DomToGroovy converter = new DomToGroovy(new PrintWriter(output))
