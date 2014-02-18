@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<team name="FCBarcelona">
+    <players>
+        <player position="forward">
+            <name>Lionel</name>
+            <surname>Messi</surname>
+            <number>10</number>
+        </player>
+        <player position="forward">
+            <name>Neymar</name>
+            <surname>Neymar</surname>
+            <number>11</number>
+        </player>
+        <player position="midfielder">
+            <name>Xavi</name>
+            <surname/>
+            <number>6</number>
+        </player>
+        <player position="midfielder">
+            <name>Andrés</name>
+            <surname>Iniesta</surname>
+            <number>8</number>
+        </player>
+        <player position="forward">
+            <name>Alexis</name>
+            <surname>Sánchez</surname>
+            <number>9</number>
+        </player>
+        <player position="defender">
+            <name>Gerard</name>
+            <surname>Piqué</surname>
+            <number>3</number>
+        </player>
+        <player position="midfielder">
+            <name>Cesc</name>
+            <surname>Fabregas</surname>
+            <number>4</number>
+        </player>
+        <player position="defender">
+            <name>Carles</name>
+            <surname>Puyol</surname>
+            <number>5</number>
+        </player>
+        <player position="forward">
+            <name>Pedro Rodríguez</name>
+            <surname>Ledesma</surname>
+            <number>7</number>
+        </player>
+        <player position="goalkeeper">
+            <name>Víctor</name>
+            <surname>Valdés</surname>
+            <number>1</number>
+        </player>
+        <player position="midfielder">
+            <name>Ibrahim</name>
+            <surname>Afellay</surname>
+            <number>19</number>
+        </player>
+        <player position="forward">
+            <name>Cristian</name>
+            <surname>Tello</surname>
+            <number>20</number>
+        </player>
+        <player position="defender">
+            <name>Daniel</name>
+            <surname>Alves</surname>
+            <number>22</number>
+        </player>
+        <player position="goalkeeper">
+            <name>José Manuel</name>
+            <surname>Pinto</surname>
+            <number>13</number>
+        </player>
+        <player position="defender">
+            <name>Marc</name>
+            <surname>Bartra</surname>
+            <number>15</number>
+        </player>
+        <player position="midfielder">
+            <name>Alex</name>
+            <surname>Song</surname>
+            <number>17</number>
+        </player>
+        <player position="defender">
+            <name>Adriano</name>
+            <surname>Correia</surname>
+            <number>21</number>
+        </player>
+        <player position="midfielder">
+            <name>Sergi</name>
+            <surname>Roberto</surname>
+            <number>24</number>
+        </player>
+        <player position="defender">
+            <name>Martín</name>
+            <surname>Montoya</surname>
+            <number>2</number>
+        </player>
+        <player position="defender">
+            <name>Jordi</name>
+            <surname>Alba</surname>
+            <number>18</number>
+        </player>
+        <player position="defender">
+            <name>Javier</name>
+            <surname>Mascherano</surname>
+            <number>14</number>
+        </player>
+        <player position="forward">
+            <name>Isaac</name>
+            <surname>Cuenca</surname>
+            <number>23</number>
+        </player>
+        <player position="midfielder">
+            <name>Sergio</name>
+            <surname>Busquets</surname>
+            <number>16</number>
+        </player>
+        <player position="midfielder">
+            <name>Jonathan dos</name>
+            <surname>Santos</surname>
+            <number>12</number>
+        </player>
+        <player position="goalkeeper">
+            <name>Oier Olazábal</name>
+            <surname>Paredes</surname>
+            <number>25</number>
+        </player>
+    </players>
+</team>
