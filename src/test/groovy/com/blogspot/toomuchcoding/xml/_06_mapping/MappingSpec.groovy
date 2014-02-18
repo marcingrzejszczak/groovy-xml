@@ -1,4 +1,4 @@
-package com.blogspot.toomuchcoding.xml.mapping
+package com.blogspot.toomuchcoding.xml._06_mapping
 
 import com.blogspot.toomuchcoding.xml.xmlunit.XmlComparator
 import groovy.xml.MarkupBuilder

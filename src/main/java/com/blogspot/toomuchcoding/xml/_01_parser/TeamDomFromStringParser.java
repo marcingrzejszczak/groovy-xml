@@ -1,4 +1,4 @@
-package com.blogspot.toomuchcoding.xml.parser;
+package com.blogspot.toomuchcoding.xml._01_parser;
 
 import java.io.ByteArrayInputStream;
 import javax.xml.parsers.DocumentBuilder;

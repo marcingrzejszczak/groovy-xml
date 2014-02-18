@@ -1,4 +1,4 @@
-package com.blogspot.toomuchcoding.xml.creating
+package com.blogspot.toomuchcoding.xml._04_creating
 
 import com.blogspot.toomuchcoding.xml.xmlunit.XmlComparator
 import groovy.xml.MarkupBuilder
@@ -180,28 +180,28 @@ class TeamCreatorMarkupBuilderSpec extends Specification {
             def xml = new MarkupBuilder(writer)
         when:
             xml.HTML {
-                HEAD {
-                    TITLE('A cool website')
-                }
-                BODY {
-                    HR()
-                    P {
-                        A(HREF:'http://toomuchcoding.blogspot.com', 'BLOG')
-                        H1('WGUG')
-                        H2('This is a medium header of groovy presentation')
-                        SPAN {
-                            mkp.yield('And here we have a link')
-                            a(href:'mailto:mail@mail.com', 'mail@mail.com')
+                    HEAD {
+                        TITLE('A cool website')
+                    }
+                    BODY {
+                        HR()
+                        P {
+                            A(HREF:'http://toomuchcoding.blogspot.com', 'BLOG')
+                            H1('WGUG')
+                            H2('This is a medium header of groovy presentation')
+                            SPAN {
+                                mkp.yield('And here we have a link')
+                                a(href:'mailto:mail@mail.com', 'mail@mail.com')
+                            }
                         }
-                    }
-                    P {
-                        B('One paragraph')
-                    }
-                    BR()
-                    B {
-                        I('Another paragraph.')
-                    }
-                    HR()
+                        P {
+                            B('One paragraph')
+                        }
+                        BR()
+                        B {
+                            I('Another paragraph.')
+                        }
+                        HR()
                 }
             }
         then:

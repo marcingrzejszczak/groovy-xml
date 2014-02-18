@@ -1,4 +1,4 @@
-package com.blogspot.toomuchcoding.xml.creation;
+package com.blogspot.toomuchcoding.xml._04_creating;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

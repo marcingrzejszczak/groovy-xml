@@ -1,6 +1,5 @@
-package com.blogspot.toomuchcoding.xml.traversing
+package com.blogspot.toomuchcoding.xml._02_traversing
 
-import com.blogspot.toomuchcoding.xml.search.XPathSearch
 import org.w3c.dom.Element
 import spock.lang.Specification
 import org.w3c.dom.NodeList
@@ -25,9 +24,6 @@ class XPathSpec extends Specification {
             NodeList childNodes = player.getChildNodes();
             for (int j = 0; j != childNodes.getLength(); ++j) {
                 Node child = childNodes.item(j);
-                if (!(child instanceof Element)) {
-                    continue;
-                }
                 if (child.getNodeName().equals("surname")) {
                     names.add(child.getFirstChild().getNodeValue() + "_BARCELONA");
                 }

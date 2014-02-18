@@ -1,4 +1,4 @@
-package com.blogspot.toomuchcoding.xml.traversing
+package com.blogspot.toomuchcoding.xml._02_traversing
 
 import spock.lang.Specification
 

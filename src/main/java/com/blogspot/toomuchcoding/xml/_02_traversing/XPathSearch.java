@@ -1,4 +1,4 @@
-package com.blogspot.toomuchcoding.xml.search;
+package com.blogspot.toomuchcoding.xml._02_traversing;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;

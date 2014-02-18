@@ -1,6 +1,5 @@
-package com.blogspot.toomuchcoding.xml.creating
+package com.blogspot.toomuchcoding.xml._04_creating
 
-import com.blogspot.toomuchcoding.xml.creation.TeamCreator
 import com.blogspot.toomuchcoding.xml.xmlunit.XmlComparator
 import org.custommonkey.xmlunit.XMLUnit
 import spock.lang.Specification

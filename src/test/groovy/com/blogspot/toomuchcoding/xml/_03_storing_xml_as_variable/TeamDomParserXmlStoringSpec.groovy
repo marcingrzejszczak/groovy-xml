@@ -1,6 +1,6 @@
-package com.blogspot.toomuchcoding.xml.storing
+package com.blogspot.toomuchcoding.xml._03_storing_xml_as_variable
 
-import com.blogspot.toomuchcoding.xml.parser.TeamDomFromStringParser
+import com.blogspot.toomuchcoding.xml._01_parser.TeamDomFromStringParser
 import spock.lang.Specification
 
 class TeamDomParserXmlStoringSpec extends Specification {

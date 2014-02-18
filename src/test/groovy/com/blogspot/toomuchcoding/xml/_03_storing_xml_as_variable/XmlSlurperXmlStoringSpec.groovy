@@ -1,4 +1,4 @@
-package com.blogspot.toomuchcoding.xml.storing
+package com.blogspot.toomuchcoding.xml._03_storing_xml_as_variable
 
 import spock.lang.Specification
 

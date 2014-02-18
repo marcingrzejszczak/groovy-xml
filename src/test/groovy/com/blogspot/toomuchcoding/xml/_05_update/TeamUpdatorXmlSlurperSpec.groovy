@@ -1,10 +1,12 @@
-package com.blogspot.toomuchcoding.xml.update
+package com.blogspot.toomuchcoding.xml._05_update
 
 import com.blogspot.toomuchcoding.xml.xmlunit.XmlComparator
+import groovy.xml.StreamingMarkupBuilder
+import groovy.xml.XmlUtil
 import org.custommonkey.xmlunit.XMLUnit
 import spock.lang.Specification
 
-class TeamUpdatorSpec extends Specification {
+class TeamUpdatorXmlSlurperSpec extends Specification {
 
     def setupSpec() {
         XmlComparator.setupXmlUnit()
@@ -63,10 +65,23 @@ class TeamUpdatorSpec extends Specification {
                                     </players>
                                 </team>
                                 '''
+        and:
+            def team = new XmlSlurper().parseText(inputXml)
+        and:
+            def players = team.players.player
+            players.find { it.surname == "Messi" }.surname = "ChangedMessi"
+            players.find { it.surname == "Neymar" }.@position = "goalkeeper"
+            players.find { it.surname == "Iniesta" }.number.replaceNode {}
+            players.find { it.surname == "Xavi" }.replaceNode {}
+            team.players.appendNode {
+                player(position: "midfielder") {
+                    name("Marcin")
+                    surname("Grzejszczak")
+                }
+            }
         when:
-            String outputXml = new TeamDomUpdator().updateXml(inputXml)
+            String outputXml = XmlUtil.serialize(new StreamingMarkupBuilder().bindNode(team).toString())
         then:
-           XMLUnit.compareXML(desiredXml, outputXml).similar()
-
+            XMLUnit.compareXML(desiredXml, outputXml).similar()
     }
 }
