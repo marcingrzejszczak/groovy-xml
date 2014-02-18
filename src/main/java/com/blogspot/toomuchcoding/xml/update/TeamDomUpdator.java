@@ -42,10 +42,10 @@ public class TeamDomUpdator {
             }
 
 	        Element marcin = document.createElement("player");
-	        marcin.setAttribute("position", "forward");
+	        marcin.setAttribute("position", "midfielder");
 	        marcin.appendChild(document.createElement("name")).appendChild(document.createTextNode("Marcin"));
 	        marcin.appendChild(document.createElement("surname")).appendChild(document.createTextNode("Grzejszczak"));
-	        team.getFirstChild().appendChild(marcin);
+	        team.getFirstChild().getNextSibling().appendChild(marcin);
 	        
 	        OutputFormat format = new OutputFormat(document);
 	        Writer out = new StringWriter();
