@@ -2,6 +2,7 @@ package com.blogspot.toomuchcoding.xml._04_creating
 
 import com.blogspot.toomuchcoding.xml.xmlunit.XmlComparator
 import groovy.xml.MarkupBuilder
+import groovy.xml.StreamingMarkupBuilder
 import org.codehaus.groovy.tools.xml.DomToGroovy
 import org.custommonkey.xmlunit.XMLUnit
 import org.w3c.dom.Document
@@ -62,6 +63,73 @@ class TeamCreatorMarkupBuilderSpec extends Specification {
                     player(position: "midfielder"){
                         name("Xavi")
                         surname()
+                        number(6)
+                    }
+                    player(position: "midfielder"){
+                        name("Andres")
+                        surname("Iniesta")
+                        number(8)
+                    }
+                }
+            }
+        when:
+            String actualXml = writer.toString()
+        then:
+            XMLUnit.compareXML(desiredXml, actualXml).similar()
+    }
+
+ def "should create an xml with a couple of FCBarcelona players with namespaces"() {
+        given:
+            String desiredXml = '''
+                                <team name="FCBarcelona"
+                                xmlns:fw="http://www.barcelona.org/fw"
+                                xmlns:md="http://www.barcelona.org/md">
+                                    <fw:players>
+                                        <player position="forward">
+                                            <name>Lionel</name>
+                                            <surname>Messi</surname>
+                                            <number>10</number>
+                                        </player>
+                                        <player position="forward">
+                                            <name>Neymar</name>
+                                            <surname>Neymar</surname>
+                                            <number>11</number>
+                                        </player>
+                                     </fw:players>
+                                     <md:players>
+                                        <player position="midfielder">
+                                            <name>Xavi</name>
+                                            <surname>Xavi</surname>
+                                            <number>6</number>
+                                        </player>
+                                        <player position="midfielder">
+                                            <name>Andres</name>
+                                            <surname>Iniesta</surname>
+                                            <number>8</number>
+                                        </player>
+                                    </md:players>
+                                </team>'''
+        and:
+            def writer = new StringWriter()
+            def xml = new MarkupBuilder(writer)
+        and:
+            xml.team(name: "FCBarcelona", 'xmlns:fw':"http://www.barcelona.org/fw", 'xmlns:md':"http://www.barcelona.org/md") {
+                'fw:players' {
+                    player(position: "forward"){
+                        name("Lionel")
+                        surname("Messi")
+                        number(10)
+                    }
+                    player(position: "forward"){
+                        name("Neymar")
+                        surname("Neymar")
+                        number(11)
+                    }
+                }
+                'md:players' {
+                    player(position: "midfielder"){
+                        name("Xavi")
+                        surname("Xavi")
                         number(6)
                     }
                     player(position: "midfielder"){
@@ -206,5 +274,73 @@ class TeamCreatorMarkupBuilderSpec extends Specification {
             }
         then:
             XMLUnit.compareXML(website, writer.toString()).similar()
+    }
+
+    def "should create a html document with streams passed to the markup"() {
+        given:
+            String website = '''
+                                <HTML>
+                                    <HEAD>
+                                        <TITLE>A cool website</TITLE>
+                                    </HEAD>
+                                    <BODY>
+                                        <HR/>
+                                        <P>
+                                            <A HREF="http://toomuchcoding.blogspot.com">BLOG</A>
+                                            <H1>WGUG</H1>
+                                            <H2>This is a medium header of groovy presentation</H2>
+                                            <SPAN>
+                                                And here we have a link <a href="mailto:mail@mail.com">mail@mail.com</a>
+                                            </SPAN>
+                                        </P>
+                                        <P>
+                                            <B>One paragraph</B>
+                                        </P>
+                                        <BR/>
+                                        <B>
+                                            <I>Another paragraph.</I>
+                                        </B>
+                                        <HR/>
+                                    </BODY>
+                                </HTML>
+                             '''
+        and:
+            def paragraph = {
+                A(HREF:'http://toomuchcoding.blogspot.com', 'BLOG')
+                H1('WGUG')
+                H2('This is a medium header of groovy presentation')
+                SPAN {
+                    mkp.yield('And here we have a link')
+                    a(href:'mailto:mail@mail.com', 'mail@mail.com')
+                }
+            }
+        and:
+            def body = {
+                HR()
+                P {
+                    out << paragraph
+                }
+                P {
+                    B('One paragraph')
+                }
+                BR()
+                B {
+                    I('Another paragraph.')
+                }
+                HR()
+            }
+        when:
+            def xml = new StreamingMarkupBuilder().bind{
+                HTML {
+                    HEAD {
+                        TITLE('A cool website')
+                    }
+                    BODY {
+                        out << body
+                    }
+                }
+            }
+        then:
+            XMLUnit.compareXML(website, xml.toString()).similar()
     }
 }
